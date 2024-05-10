@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    {% for post in posts %}
+    <li>
+      {% if post.image %}
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="300">
+      {% else %}
+      <p>Изображение отсутствует</p>
+      {% endif %}
+      <h1>{{ post.title }}</h1>
+      <p>{{ post.created_at }}</p>
+      <button><a href="/books/{{ post.id }}">Подробнее</a></button>
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

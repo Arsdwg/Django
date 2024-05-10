@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+{% if post_id.image %}
+<img src="{{ post_id.image.url }}" alt="{{ post_id.title }}" width="300" height="300">
+{% else %}
+<p>Изображение отсутствует</p>
+{% endif %}
+
+
+<h1>{{ post_id.title }}</h1>
+<p> {{ post_id.descript }}</p>
+
+{% if post_id.music %}
+<audio controls>
+    <source src="{{ post_id.music.url }}" >
+</audio>
+{% else %}
+<p>Музыка отсутствует</p>
+{% endif %}
+
+
+{% if post_id.video %}
+<iframe src="{{ post_id.video }}" frameborder="0"></iframe>
+{% else %}
+<p>Видео отсутствует</p>
+{% endif %}
+
+
+<p>{{ post_id.category }}</p>
+<p>{{ post_id.author }}</p>
+<p>{{ post_id.rewiev }}</p>
+<p>{{ post_id.pages }}</p>
+<p>{{ post_id.time_book }}</p>
+<p>{{ post_id.created_at }}</p>
+
+</body>
+</html>
