@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    .button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+       }
+    .button:hover {
+        background-color: #45a049;
+    }
+
+    .button1 {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: #B22222;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+       }
+    .button1:hover {
+        background-color: #8B0000;
+    }
+
+    .button2 {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: #000000;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+       }
+    .button2:hover {
+        background-color: #808080;
+    }
+
+</style>
+<body>
+<center>
+    <ol>
+        {% for i in clothes %}
+        <li>
+            <p>Бренд - {{ i.name }}</p>
+            <p>Описание - {{ i.descript }}</p>
+            <p>Цена - {{ i.price }}</p>
+
+            {% for j in i.tags.all %}
+                <p>Тип - {{ j.name }}</p>
+            {% endfor %}
+        </li>
+        <br>
+        {% endfor %}
+    </ol>
+    <a href="/male_cloth" class="button">Мужское</a>
+    <a href="/female_cloth" class="button1">Женское</a>
+    <a href="/kid_cloth" class="button2">Детское</a>
+</center>
+</body>
+</html>
+
