@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: #000000;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+       }
+    .button:hover {
+        background-color: #808080;
+    }
+</style>
 <head>
-    <title>Title</title>
+    <h1>Книги и отсенки</h1>
+    <a href="/create/" class="button">Создать книгу!</a>
 </head>
 <body>
-
+<center>
 <ul>
+
     {% for post in posts %}
     <li>
       {% if post.image %}
@@ -18,7 +37,10 @@
       <button><a href="/books/{{ post.id }}">Подробнее</a></button>
     </li>
     {% endfor %}
+
+
 </ul>
+</center>
 
 </body>
 </html>

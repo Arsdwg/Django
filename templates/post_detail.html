@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+    .button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: #000000;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+       }
+    .button:hover {
+        background-color: #808080;
+    }
+</style>
+
 <head>
     <title>Title</title>
 </head>
 <body>
+<a href="/books/{{ post_id.id }}/delete/" class="button">Удалить</a>
+<a href="/books/{{ post_id.id }}/update/" class="button">Редактировать</a>
+
 {% if post_id.image %}
 <img src="{{ post_id.image.url }}" alt="{{ post_id.title }}" width="300" height="300">
 {% else %}
@@ -48,5 +70,7 @@
     </tr>
     {% endfor %}
 </table>
+
+<a href="/create_review/" class="button">Добавить отзыв</a>
 </body>
 </html>

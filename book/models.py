@@ -13,7 +13,7 @@ class PostBook(models.Model):
     }
 
 
-    title = models.CharField(max_length=100, verbose_name='Наззвание')
+    title = models.CharField(max_length=100, verbose_name='Название')
     author = models.CharField(max_length=100, verbose_name='Автор')
     image = models.ImageField(upload_to='images/', verbose_name='Укажите фото', blank=True)
     descript = models.TextField(verbose_name='Описание')
