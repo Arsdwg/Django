@@ -42,7 +42,7 @@ def redact_book_view(request, id):
 def delete_book_view(request, id):
     book_id = get_object_or_404(models.PostBook, id=id)
     book_id.delete()
-    return HttpResponse('Phone deleted')
+    return HttpResponse('Book deleted')
 
 
 def create_review_view(request):
