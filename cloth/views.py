@@ -4,13 +4,13 @@ from . import models
 
 
 class ShowAll(generic.ListView):
-    template_name = 'cloth/all_cloth.html'
-    context_object_name = 'clothes'
+    template_name = "cloth/all_cloth.html"
+    context_object_name = "clothes"
     model = models.Cloth
 
-
     def get_queryset(self):
-        return self.model.objects.filter().order_by('-id')
+        return self.model.objects.filter().order_by("-id")
+
 
 # def show_all(request):
 #     if request.method == 'GET':
@@ -19,14 +19,13 @@ class ShowAll(generic.ListView):
 #                       context={'clothes': clothes})
 
 
-
 class ShowMale(generic.ListView):
-    template_name = 'cloth/male_cloth.html'
-    context_object_name = 'male'
+    template_name = "cloth/male_cloth.html"
+    context_object_name = "male"
     model = models.Cloth
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__name='мужское').order_by('-id')
+        return self.model.objects.filter(tags__name="мужское").order_by("-id")
 
 
 # def show_male(request):
@@ -37,12 +36,13 @@ class ShowMale(generic.ListView):
 
 
 class ShowFemale(generic.ListView):
-    template_name = 'cloth/female_cloth.html'
-    context_object_name = 'female'
+    template_name = "cloth/female_cloth.html"
+    context_object_name = "female"
     model = models.Cloth
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__name='женское').order_by('-id')
+        return self.model.objects.filter(tags__name="женское").order_by("-id")
+
 
 # def show_female(request):
 #     if request.method == 'GET':
@@ -51,14 +51,13 @@ class ShowFemale(generic.ListView):
 #                       context={'female': female})
 
 
-
 class ShowKids(generic.ListView):
-    template_name = 'cloth/kid_cloth.html'
-    context_object_name = 'kids'
+    template_name = "cloth/kid_cloth.html"
+    context_object_name = "kids"
     model = models.Cloth
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__name='детское').order_by('-id')
+        return self.model.objects.filter(tags__name="детское").order_by("-id")
 
 
 # def show_kids(request):

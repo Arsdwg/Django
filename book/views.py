@@ -7,14 +7,16 @@ from .models import PostBook
 
 # Create your views here.
 
+
 # List
 class PostNotFull(generic.ListView):
-    template_name = 'post.html'
-    context_object_name = 'posts'
+    template_name = "post.html"
+    context_object_name = "posts"
     model = models.PostBook
 
     def get_queryset(self):
         return self.model.objects.filter().order_by("-id")
+
 
 # def post_not_full(request):
 #     if request.method == 'GET':
@@ -25,10 +27,11 @@ class PostNotFull(generic.ListView):
 
 # Create
 
+
 class CreateBook(generic.CreateView):
-    template_name = 'create_book.html'
+    template_name = "create_book.html"
     form_class = forms.BookForm
-    success_url = '/books/'
+    success_url = "/books/"
 
     def form_valid(self, form):
         print(form.cleaned_data)
@@ -50,19 +53,19 @@ class CreateBook(generic.CreateView):
 
 # Redact
 
+
 class UpdateBook(generic.UpdateView):
-    template_name = 'edit_book.html'
+    template_name = "edit_book.html"
     form_class = forms.BookForm
-    success_url = '/books/'
+    success_url = "/books/"
 
     def get_object(self, **kwargs):
-        book_id = self.kwargs.get('id')
+        book_id = self.kwargs.get("id")
         return get_object_or_404(models.PostBook, id=book_id)
 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super(UpdateBook, self).form_valid(form=form)
-
 
 
 # def redact_book_view(request, id):
@@ -82,12 +85,13 @@ class UpdateBook(generic.UpdateView):
 
 # Delete
 class DeleteBook(generic.DeleteView):
-    template_name = 'confirm_delete.html'
-    success_url = '/books/'
+    template_name = "confirm_delete.html"
+    success_url = "/books/"
 
     def get_object(self, queryset=None):
-        book_id = self.kwargs.get('id')
+        book_id = self.kwargs.get("id")
         return get_object_or_404(models.PostBook, id=book_id)
+
 
 # def delete_book_view(request, id):
 #     book_id = get_object_or_404(models.PostBook, id=id)
@@ -96,14 +100,16 @@ class DeleteBook(generic.DeleteView):
 
 # CreateReview
 
+
 class CreateReviewBook(generic.CreateView):
-    template_name = 'create_review.html'
+    template_name = "create_review.html"
     form_class = forms.ReviewForm
-    success_url = '/books/'
+    success_url = "/books/"
 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super(CreateReviewBook, self).form_valid(form=form)
+
 
 #
 # def create_review_view(request):
@@ -119,16 +125,14 @@ class CreateReviewBook(generic.CreateView):
 #                   context={'form': form})
 
 
-
 # Detail
 class PostMore(generic.DetailView):
-    template_name = 'post_detail.html'
-    context_object_name = 'post_id'
+    template_name = "post_detail.html"
+    context_object_name = "post_id"
 
     def get_object(self, **kwargs):
-        post_id = self.kwargs.get('id')
+        post_id = self.kwargs.get("id")
         return get_object_or_404(models.PostBook, id=post_id)
-
 
 
 # def post_more(request, id):
